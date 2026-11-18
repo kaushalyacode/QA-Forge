@@ -12,7 +12,8 @@
 ## Local checks
 
 ```bash
-python -m unittest discover -s skills/qa-forge/tests   # path moves to plugins/qa-forge/... after the plugin conversion
+python -m unittest discover -s plugins/qa-forge/skills/qa-forge/tests
+python scripts/validate_plugin.py
 ```
 
 ## Rules for content

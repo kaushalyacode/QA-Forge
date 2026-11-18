@@ -1,0 +1,21 @@
+{
+  "name": "qa-forge",
+  "owner": {
+    "name": "kaushalyacode",
+    "url": "https://github.com/kaushalyacode"
+  },
+  "metadata": {
+    "description": "QA Forge marketplace — QA team workflow plugins for Claude",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "qa-forge",
+      "source": "./plugins/qa-forge",
+      "description": "End-to-end QA workflow: requirements intake (BRD, PRD, Jira, Azure DevOps), test design, RTM, MCP automation, defects and reporting.",
+      "version": "0.1.0",
+      "category": "testing",
+      "keywords": ["qa", "testing", "playwright", "jira", "azure-devops"]
+    }
+  ]
+}
