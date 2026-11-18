@@ -1,0 +1,51 @@
+{
+  "project": {
+    "name": "My Product",
+    "release": "1.0.0",
+    "area_prefix": "APP"
+  },
+  "environments": [
+    {"name": "staging", "base_url": "https://staging.example.com", "build_source": "CI pipeline"}
+  ],
+  "integrations": {
+    "jira": {
+      "enabled": false,
+      "deployment": "cloud",
+      "site": "your-site.atlassian.net",
+      "project_key": "PROJ",
+      "auth": "oauth",
+      "requirement_query": "project = PROJ AND fixVersion = \"1.0.0\" AND issuetype in (Story, Epic)",
+      "bug_issue_type": "Bug",
+      "field_map": {"severity": "customfield_10050", "acceptance_criteria": "customfield_10040"},
+      "status": "unknown"
+    },
+    "azure_devops": {
+      "enabled": false,
+      "deployment": "services",
+      "organization": "your-org",
+      "project": "YourProject",
+      "team": "",
+      "auth": "azcli",
+      "domains": ["core", "work", "work-items", "test-plans"],
+      "requirement_query": "SELECT [System.Id] FROM WorkItems WHERE [System.TeamProject] = @project AND [System.WorkItemType] IN ('User Story','Product Backlog Item') AND [System.IterationPath] UNDER @currentIteration",
+      "test_plan_id": null,
+      "status": "unknown"
+    },
+    "automation": {
+      "web": "playwright",
+      "mobile": "",
+      "device_cloud": "",
+      "api": "",
+      "code_language": "typescript",
+      "code_path": "tests/e2e"
+    }
+  },
+  "exit_criteria": {
+    "p1_executed_pct": 100,
+    "p2_executed_pct": 90,
+    "regression_pass_pct": 95,
+    "max_open_s1": 0,
+    "max_open_s2": 0,
+    "requirement_coverage_pct": 100
+  }
+}

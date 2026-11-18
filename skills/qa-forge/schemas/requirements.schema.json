@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QA Forge requirements",
+  "type": "object",
+  "required": ["requirements"],
+  "properties": {
+    "source_name": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "requirements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": {"type": "string", "pattern": "^[A-Z][A-Z0-9]*(-[A-Z0-9]+)+$"},
+          "source": {"enum": ["brd", "prd", "srs", "jira", "azure_devops", "confluence", "wiki", "other"]},
+          "source_id": {"type": "string"},
+          "title": {"type": "string", "minLength": 3},
+          "type": {"enum": ["functional", "non-functional", "business-rule", "ui", "integration", "data", "security", "performance", "accessibility", "compliance"]},
+          "priority": {"enum": ["P1", "P2", "P3", "P4"]},
+          "acceptance_criteria": {"type": "array", "items": {"type": "string"}},
+          "tags": {"type": "array", "items": {"type": "string"}},
+          "status": {"enum": ["draft", "approved", "assumed", "deferred", "rejected"]},
+          "notes": {"type": "string"}
+        }
+      }
+    }
+  }
+}
