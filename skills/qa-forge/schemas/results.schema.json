@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QA Forge run results",
+  "type": "object",
+  "required": ["run_id", "results"],
+  "properties": {
+    "run_id": {"type": "string"},
+    "environment": {"type": "string"},
+    "build": {"type": "string"},
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["test_case_id", "status"],
+        "properties": {
+          "test_case_id": {"type": "string"},
+          "status": {"enum": ["pass", "fail", "blocked", "skipped", "flaky"]},
+          "executed_by": {"type": "string"},
+          "executed_at": {"type": "string"},
+          "duration_s": {"type": "number"},
+          "actual": {"type": "string"},
+          "evidence": {"type": "array", "items": {"type": "string"}},
+          "defect_ids": {"type": "array", "items": {"type": "string"}}
+        }
+      }
+    }
+  }
+}
