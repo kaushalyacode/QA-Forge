@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.10", "3.13"]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit tests
+        run: python -m unittest discover -s plugins/qa-forge/skills/qa-forge/tests -v
+      - name: Plugin & skill validation
+        run: python scripts/validate_plugin.py
+      - name: Example pipeline smoke test
+        working-directory: plugins/qa-forge/skills/qa-forge/examples/checkout
+        run: |
+          S=../../scripts
+          python $S/validate_testcases.py test-cases.json --requirements requirements.json
+          python $S/build_rtm.py --requirements requirements.json --test-cases test-cases.json --results junit.xml manual-results.json -o /tmp/rtm.md
+          python $S/report.py --test-cases test-cases.json --results junit.xml manual-results.json --defects defects.json --config ../../templates/qa-forge.config.json -o /tmp/report.md
+          grep -q "NO-GO" /tmp/report.md
+
+  package-skill:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Zip skill for Claude apps upload
+        run: cd plugins/qa-forge/skills && zip -r ../../../qa-forge-skill.zip qa-forge -x "qa-forge/tests/*" "*/__pycache__/*"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: qa-forge-skill
+          path: qa-forge-skill.zip
