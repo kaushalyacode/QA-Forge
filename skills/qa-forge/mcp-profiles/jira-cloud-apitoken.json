@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v2/mcp",
+      "headers": {
+        "Authorization": "Basic ${ATLASSIAN_BASIC_AUTH}"
+      }
+    }
+  },
+  "_notes": "ATLASSIAN_BASIC_AUTH = base64('you@company.com:<api_token>'). Requires an org admin to enable API-token auth for the Rovo MCP server. For a service-account key use 'Bearer ${ATLASSIAN_API_KEY}'."
+}

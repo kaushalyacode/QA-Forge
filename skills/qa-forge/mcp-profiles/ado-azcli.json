@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "azure-devops": {
+      "command": "npx",
+      "args": ["-y", "@azure-devops/mcp", "${ADO_ORG}", "--authentication", "azcli", "-d", "core", "work", "work-items", "test-plans", "pipelines"]
+    }
+  },
+  "_notes": "Run `az login` first. Always keep the core domain."
+}

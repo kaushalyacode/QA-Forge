@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "azure-devops": {
+      "type": "http",
+      "url": "https://mcp.dev.azure.com/${ADO_ORG}"
+    }
+  },
+  "_notes": "Hosted server (preview), Microsoft Entra ID OAuth only. If your client can't complete Entra auth, use ado-azcli.json or ado-token.json."
+}
