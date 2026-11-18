@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "azure-devops": {
+      "command": "npx",
+      "args": ["-y", "@azure-devops/mcp", "${ADO_ORG}", "--authentication", "envvar", "-d", "core", "work", "work-items", "test-plans"],
+      "env": {
+        "ADO_MCP_AUTH_TOKEN": "${ADO_MCP_AUTH_TOKEN}"
+      }
+    }
+  },
+  "_notes": "Headless/CI. Token scopes: Work Items R/W, Test Management R/W, Build Read."
+}

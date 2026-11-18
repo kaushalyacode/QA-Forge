@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "jira": {
+      "command": "uvx",
+      "args": ["mcp-atlassian"],
+      "env": {
+        "JIRA_URL": "${JIRA_URL}",
+        "JIRA_PERSONAL_TOKEN": "${JIRA_PERSONAL_TOKEN}",
+        "READ_ONLY_MODE": "false"
+      }
+    }
+  },
+  "_notes": "Jira Server/Data Center with a Personal Access Token. For Jira Cloud via this server use JIRA_USERNAME + JIRA_API_TOKEN instead."
+}

@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "azure-devops-server": {
+      "command": "npx",
+      "args": ["-y", "@tiberriver256/mcp-server-azure-devops"],
+      "env": {
+        "AZURE_DEVOPS_ORG_URL": "${AZURE_DEVOPS_ORG_URL}",
+        "AZURE_DEVOPS_AUTH_METHOD": "pat",
+        "AZURE_DEVOPS_PAT": "${AZURE_DEVOPS_PAT}",
+        "AZURE_DEVOPS_DEFAULT_PROJECT": "${AZURE_DEVOPS_PROJECT}"
+      }
+    }
+  },
+  "_notes": "Azure DevOps Server (on-prem). ORG_URL includes the collection, e.g. https://tfs.company.local/tfs/DefaultCollection."
+}

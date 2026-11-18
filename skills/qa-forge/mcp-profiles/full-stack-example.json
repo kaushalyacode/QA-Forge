@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "playwright": {"command": "npx", "args": ["-y", "@playwright/mcp@latest", "--headless"]},
+    "chrome-devtools": {"command": "npx", "args": ["-y", "chrome-devtools-mcp@latest", "--headless=true", "--isolated=true"]},
+    "atlassian": {"type": "http", "url": "https://mcp.atlassian.com/v2/mcp"},
+    "azure-devops": {"command": "npx", "args": ["-y", "@azure-devops/mcp", "${ADO_ORG}", "--authentication", "azcli", "-d", "core", "work-items", "test-plans"]}
+  },
+  "_notes": "Typical mixed team: web automation + diagnostics + Jira for requirements + ADO Test Plans. Remove what you don't use."
+}
