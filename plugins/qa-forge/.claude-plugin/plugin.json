@@ -1,0 +1,13 @@
+{
+  "name": "qa-forge",
+  "version": "0.1.0",
+  "description": "End-to-end QA team workflow: BRD/PRD/Jira/Azure DevOps intake, risk-based test design, test plans, RTM, MCP-driven automation (Playwright, Selenium, Appium, Chrome DevTools, BrowserStack), defect logging and release-readiness reports.",
+  "author": {
+    "name": "kaushalyacode",
+    "url": "https://github.com/kaushalyacode"
+  },
+  "homepage": "https://github.com/kaushalyacode/QA-Forge",
+  "repository": "https://github.com/kaushalyacode/QA-Forge",
+  "license": "MIT",
+  "keywords": ["qa", "testing", "test-automation", "playwright", "selenium", "appium", "jira", "azure-devops", "rtm", "test-plan", "mcp"]
+}
