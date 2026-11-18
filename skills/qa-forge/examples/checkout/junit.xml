@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="playwright" tests="2" failures="1">
+  <testsuite name="promo.spec.ts" tests="2" failures="1">
+    <testcase classname="promo.spec.ts" name="TC-CHK-001-01 Valid promo code reduces the order total @REQ-CHK-001 @P1" time="3.2"/>
+    <testcase classname="promo.spec.ts" name="TC-CHK-002-01 Expired promo code is rejected @REQ-CHK-002 @P1" time="2.9">
+      <failure message="expect(locator).toHaveText: expected $50.00, received $40.00"/>
+    </testcase>
+  </testsuite>
+</testsuites>

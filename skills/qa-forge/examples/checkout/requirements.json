@@ -1,0 +1,96 @@
+{
+  "source_name": "Checkout PRD v1.2",
+  "generated_at": "2026-11-18T00:00:00+00:00",
+  "requirements": [
+    {
+      "id": "REQ-CHK-001",
+      "source": "prd",
+      "source_id": "FR-1",
+      "title": "The system shall allow a logged-in shopper to apply one promo code per order.",
+      "type": "functional",
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Given a valid code, when the shopper applies it, then the order total is reduced by the configured discount",
+        "Given a second code, when the shopper applies it, then the first code is replaced and only one discount applies"
+      ],
+      "tags": [
+        "functional-requirements"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    },
+    {
+      "id": "REQ-CHK-002",
+      "source": "prd",
+      "source_id": "FR-2",
+      "title": "The system must reject expired or unknown promo codes with a clear message.",
+      "type": "functional",
+      "priority": "P2",
+      "acceptance_criteria": [
+        "Given an expired code, when applied, then \"This code has expired\" is shown and the total is unchanged",
+        "Given an unknown code, when applied, then \"Code not recognised\" is shown"
+      ],
+      "tags": [
+        "functional-requirements"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    },
+    {
+      "id": "REQ-CHK-003",
+      "source": "prd",
+      "source_id": "FR-3",
+      "title": "The promo field must accept 4 to 20 alphanumeric characters.",
+      "type": "functional",
+      "priority": "P2",
+      "acceptance_criteria": [],
+      "tags": [
+        "functional-requirements"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    },
+    {
+      "id": "REQ-CHK-004",
+      "source": "prd",
+      "source_id": "",
+      "title": "As a returning shopper, I want my applied code to persist if I refresh the page, so that I don't have to re-enter it.",
+      "type": "functional",
+      "priority": "P2",
+      "acceptance_criteria": [],
+      "tags": [
+        "user-stories"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    },
+    {
+      "id": "REQ-CHK-005",
+      "source": "prd",
+      "source_id": "NFR-1",
+      "title": "Applying a promo code should respond in under 1 second at p95.",
+      "type": "performance",
+      "priority": "P2",
+      "acceptance_criteria": [],
+      "tags": [
+        "non-functional-requirements"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    },
+    {
+      "id": "REQ-CHK-006",
+      "source": "prd",
+      "source_id": "NFR-2",
+      "title": "The promo field must be operable by keyboard and announced by screen readers (WCAG 2.2 AA).",
+      "type": "accessibility",
+      "priority": "P2",
+      "acceptance_criteria": [],
+      "tags": [
+        "non-functional-requirements"
+      ],
+      "status": "draft",
+      "notes": "auto-extracted; review"
+    }
+  ]
+}

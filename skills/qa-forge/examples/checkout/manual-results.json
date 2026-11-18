@@ -1,0 +1,10 @@
+{
+  "run_id": "2026-11-18-staging",
+  "environment": "staging",
+  "build": "2.4.0-rc1",
+  "results": [
+    {"test_case_id": "TC-CHK-001-02", "status": "pass", "executed_by": "qa1", "executed_at": "2026-11-18T14:10:00Z"},
+    {"test_case_id": "TC-CHK-002-01", "status": "fail", "executed_by": "qa1", "actual": "Total dropped to $40.00", "evidence": ["shots/tc-chk-002-01.png"], "defect_ids": ["SHOP-981"]},
+    {"test_case_id": "TC-CHK-006-01", "status": "blocked", "executed_by": "qa2", "actual": "Screen reader licence unavailable"}
+  ]
+}

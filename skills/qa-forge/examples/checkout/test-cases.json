@@ -1,0 +1,69 @@
+{
+  "test_cases": [
+    {
+      "id": "TC-CHK-001-01",
+      "title": "Valid promo code reduces the order total",
+      "requirement_ids": ["REQ-CHK-001"],
+      "type": "functional", "level": "e2e", "priority": "P1", "risk": "high", "technique": "EP",
+      "preconditions": ["Shopper is logged in", "Cart total is $50.00", "Code SAVE10 gives 10% off"],
+      "test_data": {"promo_code": "SAVE10"},
+      "steps": [
+        {"action": "Open checkout", "expected": "Order total shows $50.00"},
+        {"action": "Enter SAVE10 and press Apply", "expected": "Discount line shows -$5.00 and total shows $45.00"}
+      ],
+      "automation": {"candidate": true, "status": "automated", "framework": "playwright", "path": "tests/e2e/promo.spec.ts"},
+      "tags": ["checkout", "smoke", "regression"]
+    },
+    {
+      "id": "TC-CHK-001-02",
+      "title": "Applying a second code replaces the first",
+      "requirement_ids": ["REQ-CHK-001"],
+      "type": "negative", "level": "e2e", "priority": "P2", "risk": "high", "technique": "state transition",
+      "preconditions": ["SAVE10 already applied"],
+      "steps": [
+        {"action": "Enter FIVEOFF and press Apply", "expected": "Only FIVEOFF is listed and total shows $45.00 (=$50 - $5)"}
+      ],
+      "automation": {"candidate": true, "status": "not_automated"},
+      "tags": ["checkout", "negative"]
+    },
+    {
+      "id": "TC-CHK-002-01",
+      "title": "Expired promo code is rejected and total is unchanged",
+      "requirement_ids": ["REQ-CHK-002"],
+      "type": "negative", "level": "e2e", "priority": "P1", "risk": "high", "technique": "EP",
+      "preconditions": ["Code SPRING24 expired yesterday"],
+      "steps": [
+        {"action": "Enter SPRING24 and press Apply", "expected": "Message 'This code has expired' is shown"},
+        {"action": "Read the order total", "expected": "Order total still shows $50.00"}
+      ],
+      "automation": {"candidate": true, "status": "automated", "framework": "playwright", "path": "tests/e2e/promo.spec.ts"},
+      "tags": ["checkout", "negative", "regression"]
+    },
+    {
+      "id": "TC-CHK-003-01",
+      "title": "Promo field length boundaries 3, 4, 20, 21 characters",
+      "requirement_ids": ["REQ-CHK-003"],
+      "type": "boundary", "level": "api", "priority": "P2", "risk": "medium", "technique": "BVA",
+      "steps": [
+        {"action": "POST /cart/promo with a 3-character code", "expected": "HTTP 422 with error 'code_length'"},
+        {"action": "POST /cart/promo with a 4-character code", "expected": "HTTP 200 or 404 (not 422)"},
+        {"action": "POST /cart/promo with a 20-character code", "expected": "HTTP 200 or 404 (not 422)"},
+        {"action": "POST /cart/promo with a 21-character code", "expected": "HTTP 422 with error 'code_length'"}
+      ],
+      "automation": {"candidate": true, "status": "not_automated"},
+      "tags": ["checkout", "boundary"]
+    },
+    {
+      "id": "TC-CHK-006-01",
+      "title": "Promo field is keyboard operable and announced",
+      "requirement_ids": ["REQ-CHK-006"],
+      "type": "accessibility", "level": "manual-exploratory", "priority": "P2", "risk": "medium", "technique": "checklist",
+      "steps": [
+        {"action": "Tab to the promo field using the keyboard only", "expected": "Focus ring is visible on the promo field"},
+        {"action": "Listen with a screen reader", "expected": "Field is announced as 'Promo code, edit text'"}
+      ],
+      "automation": {"candidate": false, "status": "not_feasible"},
+      "tags": ["checkout", "a11y"]
+    }
+  ]
+}
