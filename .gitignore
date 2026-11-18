@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Secrets & auth state — never commit
+.env
+*.env
+qa/.env
+qa/.auth/
+*.auth.json
+storageState*.json
+
+# Test output
+qa/runs/**/trace*.zip
+playwright-report/
+test-results/
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
