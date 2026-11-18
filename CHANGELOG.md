@@ -10,4 +10,4 @@
 - Scripts: `check_env`, `add_mcp_profile`, `extract_requirements`, `validate_testcases`, `build_rtm`, `export_tracker` (ADO / Xray / Zephyr / Gherkin), `report`.
 - Templates: test plan, bug report, test summary report, project config. JSON Schemas for requirements, test cases, results.
 - Claude Code plugin + marketplace: 9 slash commands, 5 role subagents, default Playwright + Chrome DevTools MCP servers.
-- CI: unit tests (Python 3.9 / 3.13), plugin validation, example pipeline smoke test, skill zip artifact.
+- CI: unit tests (Python 3.10 / 3.13), plugin validation, example pipeline smoke test, skill zip artifact.
